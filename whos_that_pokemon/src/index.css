@@ -1,3 +1,4 @@
 body {
-  background-color: aqua;
+  height: 100vh;
+  background-image: linear-gradient(#feada6, #f5efef);
 }
