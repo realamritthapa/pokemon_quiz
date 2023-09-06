@@ -6,7 +6,7 @@ import { io } from "socket.io-client";
 import "./App.css";
 
 function App() {
-  const socket = io("http://localhost:3000");
+  const socket = io("http://localhost:8000");
   const [userName, setUserName] = useState("");
   console.log(userName);
   return <Welcome setName={setUserName} />;
