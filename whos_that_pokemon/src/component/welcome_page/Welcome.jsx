@@ -1,6 +1,6 @@
 import "./welcome.css";
 import { useState } from "react";
-export default function Welcome() {
+export default function Welcome({ setName }) {
   const [userName, setUserName] = useState("");
   function handleChange(event) {
     event.preventDefault();
@@ -9,7 +9,7 @@ export default function Welcome() {
   }
 
   function print() {
-    console.log(userName);
+    setName(userName);
   }
   return (
     <div className='welcome-page'>
