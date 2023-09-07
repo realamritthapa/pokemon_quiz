@@ -1,4 +1,5 @@
 import { Server } from "socket.io";
+import { playerInfoEvent } from "../socketHandlers/playerInfoEvent.js";
 export const makeServer = (server) => {
   const io = new Server(server, {
     cors: {
@@ -7,6 +8,9 @@ export const makeServer = (server) => {
   });
 
   io.on("connection", (socket) => {
-    console.log("connected");
+    socket.on("bro", (arg) => {
+      playerInfoEvent(arg);
+    });
+    console.log("connected with " + socket.id);
   });
 };
