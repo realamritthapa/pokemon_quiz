@@ -1,4 +1,4 @@
-import { Player } from "./playerModel";
+//import { Player } from "./playerModel";
 
 export class Room {
   constructor(id) {
@@ -10,6 +10,10 @@ export class Room {
 
   addPlayer(player) {
     this.players.push(player);
+  }
+
+  isFull() {
+    return this.players.length <= 4;
   }
 
   removePlayer(playerId) {

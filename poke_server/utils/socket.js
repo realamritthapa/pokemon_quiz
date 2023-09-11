@@ -8,8 +8,8 @@ export const makeServer = (server) => {
   });
 
   io.on("connection", (socket) => {
-    socket.on("bro", (arg) => {
-      playerInfoEvent(arg);
+    socket.on("join", (arg) => {
+      playerInfoEvent(socket.id, arg);
     });
     console.log("connected with " + socket.id);
   });

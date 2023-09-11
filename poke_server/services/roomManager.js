@@ -1,8 +1,8 @@
-import { Room } from "../models/roomModel";
+//import { Room } from "../models/roomModel.js";
 
 export class RoomsManager {
   constructor() {
-    this.rooms = {};
+    this.rooms = {}; //dictionary
   }
 
   createRoom(roomId) {
