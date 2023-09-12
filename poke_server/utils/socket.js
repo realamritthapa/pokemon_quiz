@@ -1,5 +1,5 @@
 import { Server } from "socket.io";
-import { playerInfoEvent } from "../socketHandlers/playerInfoEvent.js";
+import { playerJoinedEvent } from "../socketHandlers/playerJoinedEvent.js";
 export const makeServer = (server) => {
   const io = new Server(server, {
     cors: {
@@ -9,8 +9,12 @@ export const makeServer = (server) => {
 
   io.on("connection", (socket) => {
     socket.on("join", (arg) => {
-      playerInfoEvent(socket.id, arg);
+      try {
+        playerJoinedEvent(socket.id, arg);
+        socket.emit("room", "you have joined a room");
+      } catch (e) {
+        console.log(e);
+      }
     });
-    console.log("connected with " + socket.id);
   });
 };

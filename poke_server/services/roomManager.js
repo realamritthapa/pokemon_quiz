@@ -1,4 +1,4 @@
-//import { Room } from "../models/roomModel.js";
+import { Room } from "../models/roomModel.js";
 
 export class RoomsManager {
   constructor() {
@@ -6,8 +6,15 @@ export class RoomsManager {
   }
 
   createRoom(roomId) {
+    const availableRoom = this.getAvailableRoom();
+
+    if (availableRoom) {
+      return availableRoom;
+    }
+
     const newRoom = new Room(roomId);
     this.rooms[roomId] = newRoom;
+    return newRoom;
   }
 
   getRoom(roomId) {
@@ -20,5 +27,17 @@ export class RoomsManager {
 
   listRooms() {
     return Object.keys(this.rooms);
+  }
+
+  getAvailableRoom() {
+    const roomIds = this.listRooms();
+
+    for (let roomId of roomIds) {
+      console.log(roomId);
+      if (!this.rooms[roomId].isFull()) {
+        return this.rooms[roomId];
+      }
+    }
+    return null;
   }
 }

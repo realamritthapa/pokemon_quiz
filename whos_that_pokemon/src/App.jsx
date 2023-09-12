@@ -6,7 +6,21 @@ import "./App.css";
 function App() {
   const [userName, setUserName] = useState("");
   useEffect(() => {
-    socket.emit("join", userName);
+    const handleJoinRoom = (info) => {
+      console.log(info);
+    };
+
+    socket.on("room", handleJoinRoom);
+
+    return () => {
+      socket.off("room", handleJoinRoom);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (userName) {
+      socket.emit("join", userName);
+    }
   }, [userName]);
 
   return <Welcome setName={setUserName} />;
