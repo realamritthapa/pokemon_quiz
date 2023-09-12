@@ -1,5 +1,6 @@
 import "./welcome.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 export default function Welcome({ setName }) {
   const [userName, setUserName] = useState("");
   function handleChange(event) {
@@ -7,9 +8,10 @@ export default function Welcome({ setName }) {
     const { value } = event.target;
     setUserName(value);
   }
-
+  const navigate = useNavigate();
   function print() {
     setName(userName);
+    navigate("/lobby");
   }
   return (
     <div className='welcome-page'>

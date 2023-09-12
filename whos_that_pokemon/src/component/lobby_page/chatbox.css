@@ -1,0 +1,17 @@
+.message-container {
+  background-color: white;
+  height: 500px;
+  width: 100%;
+}
+.message-box {
+  width: 50%;
+  border: solid 1px lightblue;
+  background-color: white;
+}
+
+.btn {
+  width: 100%;
+}
+/* .message-input {
+  width: 100%;
+} */
