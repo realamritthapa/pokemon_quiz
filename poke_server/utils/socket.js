@@ -8,6 +8,8 @@ export const makeServer = (server) => {
   });
 
   io.on("connection", (socket) => {
+    socket.emit("socketId", socket.id);
+
     socket.on("join", (arg) => {
       try {
         playerJoinedEvent(socket.id, arg);
@@ -15,6 +17,15 @@ export const makeServer = (server) => {
       } catch (e) {
         console.log(e);
       }
+    });
+
+    socket.on("message", (data) => {
+      console.log(data);
+      let info = {
+        id: socket.id,
+        message: data,
+      };
+      io.emit("incommingMessage", info);
     });
   });
 };

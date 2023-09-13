@@ -27,7 +27,7 @@ export default function Welcome({ setName }) {
           aria-describedby='inputGroup-sizing-default'
         />
       </div>
-      <button onClick={print} type='button' className='btn w-15 btn-primary'>
+      <button onClick={print} type='button' className='btn w-25 btn-primary'>
         Submit
       </button>
     </div>
