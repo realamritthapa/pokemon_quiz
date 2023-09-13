@@ -8,11 +8,10 @@ export const makeServer = (server) => {
   });
 
   io.on("connection", (socket) => {
-    socket.emit("socketId", socket.id);
-
     socket.on("join", (arg) => {
       try {
         playerJoinedEvent(socket.id, arg);
+        socket.emit("socketId", socket.id);
         socket.emit("room", "you have joined a room");
       } catch (e) {
         console.log(e);

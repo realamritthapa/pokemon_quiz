@@ -14,13 +14,8 @@ export default function Messages() {
       setMySocketId(data);
       setIsSocketIdRetrieved(true);
     });
-    socket.on("connect_error", (err) => {
-      console.log("Connection Error", err);
-    });
-
-    socket.on("connect_timeout", () => {
-      console.log("Connection Timeout");
-    });
+    console.log("i am in");
+    console.log(mySocketId, isSocketIdRetrieved, message);
     socket.on("incommingMessage", handleIncomingMessage);
 
     // Clean up the event listener when the component is unmounted
