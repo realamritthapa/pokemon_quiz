@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./chatbox.css";
 import Messages from "./messages";
 import { socket } from "../../services/socket.js";
-export default function ChatBox() {
+export default function ChatBox({ data }) {
   const [message, setMessage] = useState("");
   function handleChange(e) {
     setMessage(e.target.value);
@@ -11,7 +11,7 @@ export default function ChatBox() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(message);
-    socket.emit("message", message);
+    socket.emit("message", data, message);
     setMessage("");
   }
 

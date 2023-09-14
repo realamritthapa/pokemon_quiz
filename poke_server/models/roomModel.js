@@ -13,7 +13,7 @@ export class Room {
   }
 
   isFull() {
-    return this.players.length > 4;
+    return this.players.length > 2;
   }
 
   removePlayer(playerId) {

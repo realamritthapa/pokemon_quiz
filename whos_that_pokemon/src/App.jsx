@@ -7,9 +7,10 @@ import ChatBox from "./component/lobby_page/chatBox";
 
 function App() {
   const [userName, setUserName] = useState("");
+  const [roomId, setRoomID] = useState(null);
   useEffect(() => {
-    const handleJoinRoom = (info) => {
-      console.log(info);
+    const handleJoinRoom = (roomid) => {
+      setRoomID(roomid);
     };
 
     socket.on("room", handleJoinRoom);
@@ -29,7 +30,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Welcome setName={setUserName} />}></Route>
-        <Route path='/lobby' element={<ChatBox />}></Route>
+        <Route path='/lobby' element={<ChatBox data={roomId} />}></Route>
       </Routes>
     </Router>
   );

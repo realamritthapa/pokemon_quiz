@@ -8,6 +8,7 @@ export default function Messages() {
 
   useEffect(() => {
     const handleIncomingMessage = (arg) => {
+      console.log(arg);
       setMessage((prevMessages) => [...prevMessages, arg]);
     };
     socket.on("socketId", (data) => {

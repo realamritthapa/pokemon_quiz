@@ -8,23 +8,25 @@ export const makeServer = (server) => {
   });
 
   io.on("connection", (socket) => {
+    //console.log(socket);
     socket.on("join", (arg) => {
       try {
-        playerJoinedEvent(socket.id, arg);
+        let roomId = playerJoinedEvent(socket.id, arg);
+        console.log(roomId);
+        socket.join(roomId);
         socket.emit("socketId", socket.id);
-        socket.emit("room", "you have joined a room");
+        socket.emit("room", roomId);
       } catch (e) {
         console.log(e);
       }
     });
 
-    socket.on("message", (data) => {
-      console.log(data);
+    socket.on("message", (data, messageToSend) => {
       let info = {
         id: socket.id,
-        message: data,
+        message: messageToSend,
       };
-      io.emit("incommingMessage", info);
+      io.to(data).emit("incommingMessage", info);
     });
   });
 };
