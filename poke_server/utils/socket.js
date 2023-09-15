@@ -22,12 +22,14 @@ export const makeServer = (server) => {
       }
     });
 
-    socket.on("message", (data, messageToSend) => {
+    socket.on("message", (data) => {
+      console.log(data);
       let info = {
         id: socket.id,
-        message: messageToSend,
+        name: data.userName.charAt(0).toUpperCase(),
+        message: data.sendMessage,
       };
-      io.to(data).emit("incommingMessage", info);
+      io.to(data.id).emit("incommingMessage", info);
     });
     socket.on("disconnect", () => {
       console.log(`${socket.id} had left`);

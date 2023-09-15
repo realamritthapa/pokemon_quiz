@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { socket } from "../../services/socket";
 import { useEffect } from "react";
+import "./message.css";
 export default function Messages() {
   const [message, setMessage] = useState([]);
   const [mySocketId, setMySocketId] = useState(null);
@@ -8,15 +9,15 @@ export default function Messages() {
 
   useEffect(() => {
     const handleIncomingMessage = (arg) => {
+      console.log("hey bro look here");
       console.log(arg);
       setMessage((prevMessages) => [...prevMessages, arg]);
+      console.log(message);
     };
     socket.on("socketId", (data) => {
       setMySocketId(data);
       setIsSocketIdRetrieved(true);
     });
-    console.log("i am in");
-    console.log(mySocketId, isSocketIdRetrieved, message);
     socket.on("incommingMessage", handleIncomingMessage);
 
     // Clean up the event listener when the component is unmounted
@@ -29,8 +30,7 @@ export default function Messages() {
       {isSocketIdRetrieved ? (
         message.map((data, index) => (
           <div
-            key={index}
-            style={{ textAlign: data.id === mySocketId ? "right" : "left" }}
+            className={`message ${data.id === mySocketId ? "mine" : "their"}`}
           >
             {data.message}
           </div>

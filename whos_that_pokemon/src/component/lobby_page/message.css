@@ -1,0 +1,39 @@
+.message {
+  max-width: 60%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+
+.message.mine {
+  background-color: #aed2ff;
+  text-align: right;
+  color: black;
+  margin-left: auto;
+  border-bottom-right-radius: 2px;
+}
+
+.message.their {
+  background-color: lightgreen;
+  text-align: left;
+  color: black;
+  margin-right: auto;
+  border-bottom-left-radius: 2px;
+}
+/* .message-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-direction: row;
+}
+.message-container .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  margin-right: 10px;
+  font-size: 0.8em;
+} */

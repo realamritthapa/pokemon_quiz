@@ -10,13 +10,19 @@ export default function ChatBox({ data }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(message);
-    socket.emit("message", data, message);
+    console.log(data.id, data.name);
+    let info = {
+      id: data.roomId,
+      userName: data.name,
+      sendMessage: message,
+    };
+    //socket.emit("message", data.id, message);
+    socket.emit("message", info);
     setMessage("");
   }
 
   return (
-    <div className='row d-flex justify-content-center '>
+    <div className='row d-flex justify-content-center w-75 '>
       <div className='message-box  '>
         <div className='message-container'>
           <Messages />

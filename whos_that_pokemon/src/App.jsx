@@ -30,7 +30,10 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Welcome setName={setUserName} />}></Route>
-        <Route path='/lobby' element={<ChatBox data={roomId} />}></Route>
+        <Route
+          path='/lobby'
+          element={<ChatBox data={{ roomId: roomId, name: userName }} />}
+        ></Route>
       </Routes>
     </Router>
   );
