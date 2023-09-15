@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { socket } from "./services/socket.js";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
-import ChatBox from "./component/lobby_page/chatBox";
+import ChatBox from "./component/lobby_page/chat_box/ChatBox";
+import LobbyPage from "./component/lobby_page/LobbyPage";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -32,7 +33,7 @@ function App() {
         <Route path='/' element={<Welcome setName={setUserName} />}></Route>
         <Route
           path='/lobby'
-          element={<ChatBox data={{ roomId: roomId, name: userName }} />}
+          element={<LobbyPage data={{ roomId: roomId, name: userName }} />}
         ></Route>
       </Routes>
     </Router>

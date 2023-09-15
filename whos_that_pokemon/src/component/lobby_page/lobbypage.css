@@ -1,0 +1,8 @@
+.lobby-title {
+  text-align: center;
+  font-size: 70px;
+  font-family: "Joti One", cursive;
+  color: #ffcb04;
+  text-shadow: 3px 3px 0 #39569e, -1px -1px 0 #39569e, 1px -1px 0 #39569e,
+    -1px 4px 0 #39569e, 1px 1px 0 #39569e;
+}

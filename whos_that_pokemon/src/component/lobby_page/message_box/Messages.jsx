@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { socket } from "../../services/socket";
+import { socket } from "../../../services/socket";
 import { useEffect } from "react";
 import "./message.css";
 export default function Messages() {
