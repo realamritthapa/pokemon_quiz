@@ -1,5 +1,6 @@
 import { Server } from "socket.io";
 import { playerJoinedEvent } from "../socketHandlers/playerJoinedEvent.js";
+import { playerLeftEvent } from "../socketHandlers/playerLeftEvent.js";
 export const makeServer = (server) => {
   const io = new Server(server, {
     cors: {
@@ -27,6 +28,10 @@ export const makeServer = (server) => {
         message: messageToSend,
       };
       io.to(data).emit("incommingMessage", info);
+    });
+    socket.on("disconnect", () => {
+      console.log(`${socket.id} had left`);
+      playerLeftEvent(socket.id);
     });
   });
 };

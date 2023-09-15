@@ -29,6 +29,14 @@ export class RoomsManager {
     return Object.keys(this.rooms);
   }
 
+  playerRemoval(playerId) {
+    const roomIds = this.listRooms();
+
+    for (let roomId of roomIds) {
+      this.rooms[roomId].removePlayer(playerId);
+    }
+  }
+
   getAvailableRoom() {
     const roomIds = this.listRooms();
 
