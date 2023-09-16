@@ -41,7 +41,6 @@ export class RoomsManager {
     const roomIds = this.listRooms();
 
     for (let roomId of roomIds) {
-      console.log(roomId);
       if (!this.rooms[roomId].isFull()) {
         return this.rooms[roomId];
       }

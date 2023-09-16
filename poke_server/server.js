@@ -3,12 +3,13 @@ dotenv.config();
 import express from "express";
 import cors from "cors";
 import { createServer } from "http";
-import { v4 as makeRoomId } from "uuid";
 import { makeServer } from "./utils/socket.js";
 import pokemondata from "./routes/pokemonData.js";
+
 const app = express();
 const Port = process.env.PORT || 3000;
 app.use(cors());
+
 app.get("/", (req, res) => {
   res.send("hello world");
 });

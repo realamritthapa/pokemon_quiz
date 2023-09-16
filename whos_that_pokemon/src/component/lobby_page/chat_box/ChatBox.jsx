@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./chatbox.css";
 import Messages from "../message_box/Messages";
 import { socket } from "../../../services/socket.js";
+
 export default function ChatBox({ data }) {
   const [message, setMessage] = useState("");
   function handleChange(e) {
@@ -10,13 +11,11 @@ export default function ChatBox({ data }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(data.id, data.name);
     let info = {
       id: data.roomId,
       userName: data.name,
       sendMessage: message,
     };
-    //socket.emit("message", data.id, message);
     socket.emit("message", info);
     setMessage("");
   }
@@ -29,7 +28,6 @@ export default function ChatBox({ data }) {
         </div>
         <form className='form-style row' onSubmit={handleSubmit}>
           <div className='col-md-10 form-group  '>
-            {/* <label for='message-input'></label> */}
             <textarea
               className='w-100 h-100'
               type='text'

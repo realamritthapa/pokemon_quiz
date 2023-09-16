@@ -4,8 +4,9 @@ export class Room {
   constructor(id) {
     this.id = id;
     this.players = [];
-    this.currentQuestion = null;
+    this.currentQuestion = 0;
     this.gameState = "waiting";
+    this.questions = [];
   }
 
   addPlayer(player) {
@@ -20,7 +21,13 @@ export class Room {
     this.players = this.players.filter((player) => player.id !== playerId);
   }
 
-  setCurrentQuestion(question) {
-    this.currentQuestion = question;
+  getCurrentQuestion() {
+    let question = this.questions[this.currentQuestion];
+    this.currentQuestion = this.currentQuestion + 1;
+    return question;
+  }
+
+  addQuestion(question) {
+    this.questions.push(question);
   }
 }

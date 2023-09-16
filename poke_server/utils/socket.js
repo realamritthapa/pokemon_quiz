@@ -9,11 +9,9 @@ export const makeServer = (server) => {
   });
 
   io.on("connection", (socket) => {
-    //console.log(socket);
     socket.on("join", (arg) => {
       try {
         let roomId = playerJoinedEvent(socket.id, arg);
-        console.log(roomId);
         socket.join(roomId);
         socket.emit("socketId", socket.id);
         socket.emit("room", roomId);
@@ -23,7 +21,6 @@ export const makeServer = (server) => {
     });
 
     socket.on("message", (data) => {
-      console.log(data);
       let info = {
         id: socket.id,
         name: data.userName.charAt(0).toUpperCase(),

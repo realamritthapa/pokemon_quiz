@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { socket } from "../../../services/socket";
 import { useEffect } from "react";
 import "./message.css";
+
 export default function Messages() {
   const [message, setMessage] = useState([]);
   const [mySocketId, setMySocketId] = useState(null);
@@ -9,10 +10,7 @@ export default function Messages() {
 
   useEffect(() => {
     const handleIncomingMessage = (arg) => {
-      console.log("hey bro look here");
-      console.log(arg);
       setMessage((prevMessages) => [...prevMessages, arg]);
-      console.log(message);
     };
     socket.on("socketId", (data) => {
       setMySocketId(data);

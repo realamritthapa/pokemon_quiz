@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { socket } from "./services/socket.js";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
-import ChatBox from "./component/lobby_page/chat_box/ChatBox";
 import LobbyPage from "./component/lobby_page/LobbyPage";
 
 function App() {
