@@ -1,4 +1,4 @@
-import { playerJoinHandler } from "./playerJoinHandler.js";
+import { playerJoinHandler } from "./playJoinHandler.js";
 import { messageHandler } from "./messageHandler.js";
 import { disconnectHandler } from "./disconnectHandler.js";
 export const connectionHandler = (socket, io) => {

@@ -5,6 +5,7 @@ import cors from "cors";
 import { createServer } from "http";
 import { makeServer } from "./utils/socket.js";
 import pokemondata from "./routes/pokemonData.js";
+import { getPokemonPic } from "./services/getPokemonPic.js";
 
 const app = express();
 const Port = process.env.PORT || 3000;
