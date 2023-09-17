@@ -1,5 +1,3 @@
-//import { Player } from "./playerModel";
-
 export class Room {
   constructor(id) {
     this.id = id;

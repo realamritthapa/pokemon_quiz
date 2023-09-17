@@ -1,4 +1,4 @@
-import { Room } from "../models/roomModel.js";
+import { Room } from "./roomModel.js";
 
 export class RoomsManager {
   constructor() {

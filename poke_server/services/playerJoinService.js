@@ -1,8 +1,8 @@
 import { Player } from "../models/playerModel.js";
-import { RoomsManager } from "../services/roomManager.js";
+import { RoomsManager } from "../models/roomManager.js";
 import { v4 as uuidv4 } from "uuid";
 export let roomManager = new RoomsManager();
-export const playerJoinedEvent = (playerId, name) => {
+export const playerJoinService = (playerId, name) => {
   if (name !== "") {
     let roomId = uuidv4();
     let player = new Player(playerId, name);
