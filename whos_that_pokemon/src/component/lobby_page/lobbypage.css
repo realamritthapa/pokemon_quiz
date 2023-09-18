@@ -11,3 +11,10 @@
   display: flex;
   justify-content: space-evenly;
 }
+.lobby-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 40%;
+}

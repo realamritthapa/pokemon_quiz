@@ -25,6 +25,7 @@
 
 .chat-box {
   position: relative;
+  width: 40%;
 }
 /* .message-input {
   width: 100%;

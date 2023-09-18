@@ -5,6 +5,6 @@ export const getPokemonPic = async () => {
     `https://pokeapi.co/api/v2/pokemon/${randomValue}`
   );
   const data = await response.json();
-  const pokePic = await data.sprites.front_default;
+  const pokePic = await data.sprites.front_shiny;
   return pokePic;
 };
