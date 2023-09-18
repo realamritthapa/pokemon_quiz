@@ -4,7 +4,7 @@
   align-items: center;
   width: 100px;
   height: 100px; /* Or any other height */
-  background-color: white;
+  background-color: lightgoldenrodyellow;
   border-radius: 50%; /* Makes the image circular */
 }
 
@@ -15,6 +15,7 @@
 }
 
 .user {
+  height: 150px;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
@@ -27,4 +28,20 @@
   height: 200px;
   width: 40%;
   justify-content: space-evenly;
+}
+
+.name {
+  width: 70%;
+  text-align: center;
+  border-radius: 40%;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.name.me {
+  background-color: #aed2ff;
+}
+
+.name.them {
+  background-color: lightgreen;
 }

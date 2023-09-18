@@ -22,7 +22,9 @@ export default function LobbyStatus() {
             <img src={obj.avatar} height='120px' width='120px' />{" "}
           </div>
 
-          <div>{obj.id === myId ? "You" : obj.name}</div>
+          <div className={`name ${obj.id === myId ? "me" : "them"}`}>
+            {obj.id === myId ? "You" : obj.name}
+          </div>
         </div>
       ))}
     </div>
