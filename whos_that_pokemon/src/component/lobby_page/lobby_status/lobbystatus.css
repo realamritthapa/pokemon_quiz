@@ -1,0 +1,30 @@
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px; /* Or any other height */
+  background-color: white;
+  border-radius: 50%; /* Makes the image circular */
+}
+
+.avatar img {
+  width: 150px; /* Or any other width */
+  height: 150px; /* Or any other height */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+.user {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.lobby {
+  display: flex;
+  flex-wrap: wrap;
+  height: 200px;
+  width: 40%;
+  justify-content: space-evenly;
+}

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { socket } from "../../../services/socket";
-
+import "./lobbystatus.css";
 export default function LobbyStatus() {
   const [lobbyStatus, setLobbyStatus] = useState([]);
+  const myId = socket.id;
+  console.log(socket.id);
   useEffect(() => {
     socket.on("lobbyStatus", (arr) => {
       setLobbyStatus(arr);
@@ -13,11 +15,14 @@ export default function LobbyStatus() {
     console.log(lobbyStatus);
   }, []);
   return (
-    <div>
+    <div className='lobby'>
       {lobbyStatus.map((obj) => (
-        <div>
-          <img src={obj.avatar} />
-          <div>{obj.name}</div>
+        <div className='user'>
+          <div className='avatar'>
+            <img src={obj.avatar} height='120px' width='120px' />{" "}
+          </div>
+
+          <div>{obj.id === myId ? "You" : obj.name}</div>
         </div>
       ))}
     </div>
