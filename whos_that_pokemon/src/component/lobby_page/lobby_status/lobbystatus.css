@@ -4,8 +4,10 @@
   align-items: center;
   width: 100px;
   height: 100px; /* Or any other height */
-  background-color: lightgoldenrodyellow;
+  /* background-color: lightgoldenrodyellow; */
+  background-color: #ffc7ea;
   border-radius: 50%; /* Makes the image circular */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .avatar img {
@@ -39,9 +41,9 @@
 }
 
 .name.me {
-  background-color: #aed2ff;
+  background-color: #40f8ff;
 }
 
 .name.them {
-  background-color: lightgreen;
+  background-color: #45ffca;
 }

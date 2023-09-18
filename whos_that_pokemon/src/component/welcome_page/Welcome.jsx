@@ -16,7 +16,7 @@ export default function Welcome({ setName }) {
   return (
     <div className='welcome-page'>
       <h1 className='title'>Who's that Pokemon?</h1>
-      <img className='main-image' src='/assets/mainPokemon.png' />
+      <img className='main-image' src='/assets/pokeomnBackground.png' />
       <div className='input-group mb-3 w-15'>
         <input
           onChange={handleChange}
@@ -32,7 +32,7 @@ export default function Welcome({ setName }) {
         type='button'
         className='btn w-25 btn-primary '
       >
-        Submit
+        Enter the lobby
       </button>
     </div>
   );
