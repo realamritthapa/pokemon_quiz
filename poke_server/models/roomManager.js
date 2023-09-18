@@ -29,6 +29,22 @@ export class RoomsManager {
     return Object.keys(this.rooms);
   }
 
+  getPlayersRoomId(playerId) {
+    const roomIds = this.listRooms();
+    let info;
+    for (let roomid of roomIds) {
+      let roomInfo = this.rooms[roomid].getRoomId(playerId);
+      if (roomInfo) {
+        return roomInfo;
+      }
+    }
+    return null;
+  }
+
+  getPlayerInformation(roomId) {
+    return this.rooms[roomId].players;
+  }
+
   playerRemoval(playerId) {
     const roomIds = this.listRooms();
 

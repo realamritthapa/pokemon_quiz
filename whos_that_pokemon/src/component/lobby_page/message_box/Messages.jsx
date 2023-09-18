@@ -10,6 +10,7 @@ export default function Messages() {
 
   useEffect(() => {
     const handleIncomingMessage = (arg) => {
+      console.log(arg);
       setMessage((prevMessages) => [...prevMessages, arg]);
     };
     socket.on("socketId", (data) => {
@@ -22,12 +23,16 @@ export default function Messages() {
     return () => {
       socket.off("incommingMessage", handleIncomingMessage);
     };
-  }, [mySocketId]);
+  }, []);
+  useEffect(() => {
+    console.log(message);
+  }, [message]);
   return (
     <div>
       {isSocketIdRetrieved ? (
         message.map((data, index) => (
           <div
+            key={index}
             className={`message ${data.id === mySocketId ? "mine" : "their"}`}
           >
             {data.message}

@@ -6,3 +6,8 @@
   text-shadow: 3px 3px 0 #39569e, -1px -1px 0 #39569e, 1px -1px 0 #39569e,
     -1px 4px 0 #39569e, 1px 1px 0 #39569e;
 }
+
+.lobby-page {
+  display: flex;
+  justify-content: space-evenly;
+}

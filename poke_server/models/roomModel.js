@@ -19,6 +19,34 @@ export class Room {
     this.players = this.players.filter((player) => player.id !== playerId);
   }
 
+  getRoomId(playerId) {
+    for (let player of this.players) {
+      if (player.id === playerId) {
+        return this.id;
+      }
+    }
+    return null;
+  }
+  // getPlayerInfo(playerId) {
+  //   let info;
+  //   for (let player of this.players) {
+  //     if (player.id === playerId) {
+  //       info = player.getBasicInfo();
+  //     } else {
+  //       info = null;
+  //     }
+  //   }
+  //   return info;
+  // }
+
+  getPlayerInfo(roomId) {
+    if (this.roomId === roomId) {
+      return this.players;
+    } else {
+      return null;
+    }
+  }
+
   getCurrentQuestion() {
     let question = this.questions[this.currentQuestion];
     this.currentQuestion = this.currentQuestion + 1;

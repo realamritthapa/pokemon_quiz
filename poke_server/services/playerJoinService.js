@@ -10,6 +10,8 @@ export const playerJoinService = async (playerId, name) => {
     let player = new Player(playerId, name, pokePic);
     let room = roomManager.createRoom(roomId);
     room.addPlayer(player);
+    //let info = roomManager.getPlayerInformation(playerId);
+    //console.log(info);
 
     return room.id;
   } else {

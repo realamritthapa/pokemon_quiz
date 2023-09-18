@@ -10,4 +10,12 @@ export class Player {
   increaseScore(points) {
     this.score += points;
   }
+
+  getBasicInfo() {
+    let basicInfo = {
+      userName: this.name,
+      avatar: this.avatar,
+    };
+    return basicInfo;
+  }
 }
