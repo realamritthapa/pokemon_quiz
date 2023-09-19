@@ -18,3 +18,8 @@
   align-items: center;
   width: 40%;
 }
+.pika-pic {
+  align-self: flex-start;
+  width: 200px;
+  margin-left: 45px;
+}

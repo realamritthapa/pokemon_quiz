@@ -15,6 +15,7 @@ export default function LobbyPage({ data }) {
         <ChatBox data={data} />;
         <div className='lobby-start'>
           <LobbyStatus />
+          <img className='pika-pic' src='/assets/pika1.png' />
           <StartQuiz />
         </div>
       </div>
