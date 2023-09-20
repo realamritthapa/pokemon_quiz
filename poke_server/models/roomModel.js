@@ -56,4 +56,15 @@ export class Room {
   addQuestion(question) {
     this.questions.push(question);
   }
+
+  setPlayerReady(playerId) {
+    for (let player of this.players) {
+      if (player.id === playerId) {
+        if (player.setReady()) {
+          return true;
+        }
+      }
+    }
+    return null;
+  }
 }

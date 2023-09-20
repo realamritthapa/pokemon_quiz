@@ -63,4 +63,13 @@ export class RoomsManager {
     }
     return null;
   }
+
+  playerReady(playerId) {
+    const roomIds = this.listRooms();
+
+    for (let roomId of roomIds) {
+      return this.rooms[roomId].setPlayerReady(playerId);
+    }
+    return null;
+  }
 }

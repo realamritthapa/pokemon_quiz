@@ -18,4 +18,13 @@ export class Player {
     };
     return basicInfo;
   }
+
+  setReady() {
+    this.ready = true;
+    if (this.ready) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

@@ -5,11 +5,17 @@
   width: 80%;
   height: 80%; /* Or any other height */
   /* background-color: lightgoldenrodyellow; */
-  background-color: #ffc7ea;
+  /* background-color: #ffc7ea; */
+
   border-radius: 50%; /* Makes the image circular */
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
-
+.avatar.ready {
+  background-color: #ddffbb;
+}
+.avatar.nready {
+  background-color: #fdf7c3;
+}
 .avatar img {
   width: 100%; /* Or any other width */
   height: 100%; /* Or any other height */
@@ -38,7 +44,7 @@
   flex-wrap: wrap;
   /* height: 200px; */
   width: 100%; /* Adjust width as necessary */
-  background-color: #faf0e6; /* Background color for the speech bubble */
+  background-color: white; /* Background color for the speech bubble */
   border-radius: 30px; /* Gives rounded corners to the speech bubble */
   padding: 20px; /* Adds some padding inside the speech bubble */
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Adds a shadow for a 3D effect */
@@ -53,7 +59,7 @@
   width: 0;
   height: 0;
   border: 20px solid transparent;
-  border-top-color: #faf0e6; /* Must match the background color of .lobby */
+  border-top-color: white; /* Must match the background color of .lobby */
   border-bottom: 0;
   margin-left: -10px;
   margin-bottom: -20px;
@@ -68,11 +74,11 @@
 }
 
 .name.me {
-  background-color: #40f8ff;
+  background-color: #ef9595;
 }
 
 .name.them {
-  background-color: #45ffca;
+  background-color: #dbdfea;
 }
 
 .lobby-container {

@@ -20,7 +20,9 @@ export default function LobbyStatus() {
       <div className='lobby'>
         {lobbyStatus.map((obj) => (
           <div className='user'>
-            <div className='avatar'>
+            <div
+              className={`avatar ${obj.ready === true ? "ready" : "nready"}`}
+            >
               <img src={obj.avatar} />
             </div>
 
