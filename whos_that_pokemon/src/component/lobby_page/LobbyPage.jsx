@@ -12,7 +12,7 @@ export default function LobbyPage({ data }) {
     <div>
       <h1 className='lobby-title'>Lobby</h1>
       <div className='lobby-page'>
-        <ChatBox data={data} />;
+        <ChatBox data={data} />
         <div className='lobby-start'>
           <LobbyStatus />
           <img className='pika-pic' src='/assets/pika1.png' />
