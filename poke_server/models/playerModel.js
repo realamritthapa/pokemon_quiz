@@ -27,4 +27,8 @@ export class Player {
       return false;
     }
   }
+
+  isReady() {
+    return this.ready;
+  }
 }

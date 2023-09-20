@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import ChatBox from "./chat_box/ChatBox";
 import { socket } from "../../services/socket";
 import LobbyStatus from "./lobby_status/LobbyStatus";
 import StartQuiz from "./start_quiz/StartQuiz";
+import Countdown from "../quiz_page/timer_page/Countdown";
 import "./lobbypage.css";
 export default function LobbyPage({ data }) {
-  socket.on("lobbyStatus", (arg) => {
-    console.log(arg);
+  const [readyForQuiz, setReadyForQuiz] = useState(false);
+  socket.on("roomReady", (arg) => {
+    console.log("this is from lobby", arg);
+    setReadyForQuiz(arg);
   });
   return (
     <div>
@@ -14,9 +17,15 @@ export default function LobbyPage({ data }) {
       <div className='lobby-page'>
         <ChatBox data={data} />
         <div className='lobby-start'>
-          <LobbyStatus />
-          <img className='pika-pic' src='/assets/pika1.png' />
-          <StartQuiz />
+          {readyForQuiz ? (
+            <Countdown time={10} />
+          ) : (
+            <>
+              <LobbyStatus />
+              <img className='pika-pic' src='/assets/pika1.png' />
+              <StartQuiz />
+            </>
+          )}
         </div>
       </div>
     </div>

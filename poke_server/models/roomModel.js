@@ -27,6 +27,21 @@ export class Room {
     }
     return null;
   }
+
+  isRoomReady() {
+    let ready = 0;
+    if (this.isFull()) {
+      for (let player of this.players) {
+        if (player.ready === true) {
+          ready += 1;
+        }
+      }
+    }
+    if (ready === this.players.length) {
+      return true;
+    }
+    return false;
+  }
   // getPlayerInfo(playerId) {
   //   let info;
   //   for (let player of this.players) {
@@ -61,10 +76,20 @@ export class Room {
     for (let player of this.players) {
       if (player.id === playerId) {
         if (player.setReady()) {
+          if (this.isRoomReady()) {
+            this.gameState = "ready";
+          }
           return true;
         }
       }
     }
     return null;
+  }
+
+  setGameState() {
+    if (!this.isFull && this.gameState === "ready") {
+      this.gameState = "waiting";
+    }
+    return true;
   }
 }

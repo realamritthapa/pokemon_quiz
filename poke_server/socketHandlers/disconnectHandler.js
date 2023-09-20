@@ -9,4 +9,5 @@ export const disconnectHandler = (io, playerId) => {
   } else {
     console.log("no room id");
   }
+  roomManager.resetRoom(roomId);
 };

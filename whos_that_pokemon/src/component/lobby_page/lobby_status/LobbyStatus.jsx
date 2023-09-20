@@ -7,6 +7,7 @@ export default function LobbyStatus() {
   console.log(socket.id);
   useEffect(() => {
     socket.on("lobbyStatus", (arr) => {
+      console.log(arr);
       setLobbyStatus(arr);
     });
   }, []);

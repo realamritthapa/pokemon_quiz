@@ -72,4 +72,12 @@ export class RoomsManager {
     }
     return null;
   }
+
+  readyRoom(roomId) {
+    return this.rooms[roomId].gameState;
+  }
+
+  resetRoom(roomId) {
+    return this.rooms[roomId].setGameState;
+  }
 }
