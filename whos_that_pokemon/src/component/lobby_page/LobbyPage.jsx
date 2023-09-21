@@ -9,7 +9,10 @@ export default function LobbyPage({ data }) {
   const [readyForQuiz, setReadyForQuiz] = useState(false);
   socket.on("roomReady", (arg) => {
     console.log("this is from lobby", arg);
-    setReadyForQuiz(arg);
+    setTimeout(() => {
+      console.log("in time out");
+      setReadyForQuiz(arg);
+    }, 3000);
   });
   return (
     <div>
@@ -18,7 +21,10 @@ export default function LobbyPage({ data }) {
         <ChatBox data={data} />
         <div className='lobby-start'>
           {readyForQuiz ? (
-            <Countdown time={10} />
+            <>
+              <h2>Ready??? Game will begin in...</h2>
+              <Countdown time={5} />
+            </>
           ) : (
             <>
               <LobbyStatus />

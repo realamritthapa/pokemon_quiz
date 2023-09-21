@@ -2,6 +2,9 @@
   background-color: white;
   height: 400px;
   width: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
 }
 .message-box {
   width: 100%;
