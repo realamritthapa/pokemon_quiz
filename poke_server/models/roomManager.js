@@ -78,6 +78,7 @@ export class RoomsManager {
   }
 
   resetRoom(roomId) {
-    return this.rooms[roomId].setGameState;
+    console.log("resetting room");
+    return this.rooms[roomId].setGameState();
   }
 }

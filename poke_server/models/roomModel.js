@@ -12,7 +12,7 @@ export class Room {
   }
 
   isFull() {
-    return this.players.length > 2;
+    return this.players.length > 1;
   }
 
   removePlayer(playerId) {
@@ -87,8 +87,16 @@ export class Room {
   }
 
   setGameState() {
-    if (!this.isFull && this.gameState === "ready") {
+    console.log(
+      "this is in the room",
+      this.gameState,
+      this.players.length,
+      !this.isFull
+    );
+
+    if (this.players.length < 1 && this.gameState == "ready") {
       this.gameState = "waiting";
+      console.log("This is a room", this.gameState);
     }
     return true;
   }
