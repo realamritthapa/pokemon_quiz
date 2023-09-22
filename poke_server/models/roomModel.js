@@ -100,4 +100,13 @@ export class Room {
     }
     return true;
   }
+
+  generateQuestion() {
+    let arr = [];
+    for (let i = 0; i < 40; ++i) {
+      let num = Math.floor((Math.random() + 1) * 1250);
+      arr.push(num);
+    }
+    console.log(arr);
+  }
 }

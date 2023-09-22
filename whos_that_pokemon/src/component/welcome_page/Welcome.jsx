@@ -13,6 +13,7 @@ export default function Welcome({ setName }) {
   function handleSubmit() {
     if (userName) {
       setName(userName);
+
       navigate("/lobby");
     } else {
       setPlaceHolder("This field can not be empty");
