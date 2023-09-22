@@ -4,6 +4,7 @@ import { socket } from "./services/socket.js";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import LobbyPage from "./component/lobby_page/LobbyPage";
+import QuizPage from "./component/quiz_page/QuizPage";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -34,6 +35,7 @@ function App() {
           path='/lobby'
           element={<LobbyPage data={{ roomId: roomId, name: userName }} />}
         ></Route>
+        <Route path='/quiz' element={<QuizPage />}></Route>
       </Routes>
     </Router>
   );

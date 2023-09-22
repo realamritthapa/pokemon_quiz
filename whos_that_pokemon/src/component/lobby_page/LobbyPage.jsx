@@ -23,7 +23,7 @@ export default function LobbyPage({ data }) {
           {readyForQuiz ? (
             <>
               <h2>Ready??? Game will begin in...</h2>
-              <Countdown time={5} />
+              <Countdown prop={{ time: 3, goTo: "/quiz" }} />
             </>
           ) : (
             <>
