@@ -27,7 +27,7 @@ function generateQuestionArray() {
   }
   return arr;
 }
-function generateQuestion() {
+function generateQuestionNumbers() {
   let questionArr = generateQuestionArray();
   let questions = [];
   let lastNum = null;
@@ -42,16 +42,31 @@ function generateQuestion() {
     question.options = questionArr[i];
     questions.push(question);
   }
-  console.log(questions);
+  return questions;
 }
-function timeTaken(func) {
-  let start = performance.now();
-  func();
-  let end = performance.now();
-  let time = end - start;
-  console.log(`Function took ${time} milliseconds.`);
+
+const question = generateQuestionNumbers();
+
+async function makeQuestionLib() {
+  let questions = generateQuestionNumbers();
+
+  let questionLib = [];
+  let question = { img: null, options: null, correctAnswer: null };
+  for (let data of questions) {
+    for (let num of data.options) {
+      console.log(num);
+      let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${num}`);
+      let data = await response.json();
+      console.log(data);
+    }
+  }
 }
-timeTaken(generateQuestion);
+async function library() {
+  let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1270`);
+  let data = await response.json();
+  console.log(data.results);
+}
+library();
 app.use("/", pokemondata);
 const httpServer = createServer(app);
 makeServer(httpServer);
