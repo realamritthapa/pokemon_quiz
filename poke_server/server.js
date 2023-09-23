@@ -7,7 +7,7 @@ import { makeServer } from "./utils/socket.js";
 import pokemondata from "./routes/pokemonData.js";
 import { getPokemonPic } from "./services/getPokemonPic.js";
 import { RoomsManager } from "./models/roomManager.js";
-import { roomManager } from "./services/playerJoinService.js";
+
 const app = express();
 const Port = process.env.PORT || 3000;
 app.use(cors());
@@ -15,7 +15,7 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.send("hello world");
 });
-function generateQuestionArray() {
+function generateRandomNumberGroups() {
   let arr = [];
   let list = [];
   for (let i = 0; i < 10; ++i) {
@@ -28,8 +28,8 @@ function generateQuestionArray() {
   }
   return arr;
 }
-function generateQuestionNumbers() {
-  let questionArr = generateQuestionArray();
+function generateOptionCorrectAnswer() {
+  let questionArr = generateRandomNumberGroups();
   let questions = [];
   let lastNum = null;
   let num = null;
@@ -46,23 +46,18 @@ function generateQuestionNumbers() {
   return questions;
 }
 
-const question = generateQuestionNumbers();
-
-async function makeQuestionLib() {
-  let questions = generateQuestionNumbers();
+async function makeQuestionLibrary() {
+  let questions = generateOptionCorrectAnswer();
 
   let questionLib = [];
   let question = { img: null, options: null, correctAnswer: null };
-  for (let data of questions) {
-    for (let num of data.options) {
-      console.log(num);
-      let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${num}`);
-      let data = await response.json();
-      console.log(data);
-    }
-  }
+  console.log(questions);
 }
+let roomManager = new RoomsManager();
 
+setTimeout(() => {
+  roomManager.makeQuestionLibrary();
+}, 5000);
 app.use("/", pokemondata);
 const httpServer = createServer(app);
 makeServer(httpServer);

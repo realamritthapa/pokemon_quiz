@@ -7,6 +7,51 @@ export class RoomsManager {
     this.populatePokeLibrary();
   }
 
+  generateRandomNumberGroups() {
+    let arr = [];
+    let list = [];
+    for (let i = 0; i < 10; ++i) {
+      for (let j = 0; j < 4; ++j) {
+        let num = Math.floor(Math.random() * 1250) + 1;
+        list.push(num);
+      }
+      arr.push(list);
+      list = [];
+    }
+    return arr;
+  }
+
+  generateOptionCorrectAnswer() {
+    let questionArr = this.generateRandomNumberGroups();
+    let questions = [];
+    let lastNum = null;
+    let num = null;
+    for (let i = 0; i < 10; ++i) {
+      let question = { correct: null, options: null };
+      do {
+        num = Math.floor(Math.random() * 4);
+      } while (num === lastNum);
+      lastNum = num;
+      question.correct = questionArr[i][num];
+      question.options = questionArr[i];
+      questions.push(question);
+    }
+    return questions;
+  }
+
+  async makeQuestionLibrary() {
+    let questions = this.generateOptionCorrectAnswer();
+
+    let questionLibrary = [];
+    let question = { img: null, options: null, correctAnswer: null };
+    for (let data of questions) {
+      let url = this.pokeLibrary[data.correct].url;
+      let response = await fetch(url);
+      let info = await response.json();
+      console.log(info.name);
+    }
+  }
+
   async populatePokeLibrary() {
     try {
       const response = await fetch(
