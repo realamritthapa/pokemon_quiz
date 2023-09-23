@@ -42,17 +42,6 @@ export class Room {
     }
     return false;
   }
-  // getPlayerInfo(playerId) {
-  //   let info;
-  //   for (let player of this.players) {
-  //     if (player.id === playerId) {
-  //       info = player.getBasicInfo();
-  //     } else {
-  //       info = null;
-  //     }
-  //   }
-  //   return info;
-  // }
 
   getPlayerInfo(roomId) {
     if (this.roomId === roomId) {

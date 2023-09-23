@@ -3,6 +3,7 @@ import { RoomsManager } from "../models/roomManager.js";
 import { v4 as uuidv4 } from "uuid";
 import { getPokemonPic } from "./getPokemonPic.js";
 export let roomManager = new RoomsManager();
+
 export const playerJoinService = async (playerId, name) => {
   if (name !== "") {
     let pokePic = await getPokemonPic();

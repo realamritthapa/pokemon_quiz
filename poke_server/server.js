@@ -6,7 +6,8 @@ import { createServer } from "http";
 import { makeServer } from "./utils/socket.js";
 import pokemondata from "./routes/pokemonData.js";
 import { getPokemonPic } from "./services/getPokemonPic.js";
-
+import { RoomsManager } from "./models/roomManager.js";
+import { roomManager } from "./services/playerJoinService.js";
 const app = express();
 const Port = process.env.PORT || 3000;
 app.use(cors());
@@ -61,12 +62,7 @@ async function makeQuestionLib() {
     }
   }
 }
-async function library() {
-  let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1270`);
-  let data = await response.json();
-  console.log(data.results);
-}
-library();
+
 app.use("/", pokemondata);
 const httpServer = createServer(app);
 makeServer(httpServer);

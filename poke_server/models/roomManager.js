@@ -3,6 +3,20 @@ import { Room } from "./roomModel.js";
 export class RoomsManager {
   constructor() {
     this.rooms = {}; //dictionary
+    this.pokeLibrary = null;
+    this.populatePokeLibrary();
+  }
+
+  async populatePokeLibrary() {
+    try {
+      const response = await fetch(
+        `https://pokeapi.co/api/v2/pokemon?limit=1270`
+      );
+      const data = await response.json();
+      this.pokeLibrary = data.results;
+    } catch (error) {
+      console.error("Error fetching the data:", error);
+    }
   }
 
   createRoom(roomId) {
