@@ -1,4 +1,5 @@
 import { Room } from "./roomModel.js";
+import fetch from "node-fetch";
 
 export class RoomsManager {
   constructor() {
@@ -21,6 +22,19 @@ export class RoomsManager {
     return arr;
   }
 
+  async getRandomPoke() {
+    await this.libraryPopulated;
+    let randomValue = Math.floor(Math.random() * 1250) + 1;
+    let url = this.pokeLibrary[randomValue].url;
+    let response = await fetch(url);
+    let info = await response.json();
+    let artwork = await info.sprites.other["official-artwork"].front_default;
+    if (!artwork) {
+      artwork = await info.sprites.front_default;
+    }
+    return artwork;
+  }
+
   generateOptionCorrectAnswer() {
     let questionArr = this.generateRandomNumberGroups();
     let questions = [];
@@ -40,7 +54,7 @@ export class RoomsManager {
   }
 
   async makeQuestionLibrary() {
-    await this.libraryPopulated;
+    // await this.libraryPopulated;
     let questions = this.generateOptionCorrectAnswer();
     let questionLibrary = [];
     let question = { img: null, options: null, correctAnswer: null };
@@ -64,7 +78,6 @@ export class RoomsManager {
       question = { img: null, options: null, correctAnswer: null };
       optionsName = [];
     }
-    console.log(questionLibrary);
     return questionLibrary;
   }
 
@@ -138,7 +151,10 @@ export class RoomsManager {
     }
     return null;
   }
-
+  async fillRoomWithQuestion(roomId) {
+    let question = await this.makeQuestionLibrary();
+    this.rooms[roomId].addQuestion(question);
+  }
   playerReady(playerId) {
     const roomIds = this.listRooms();
 

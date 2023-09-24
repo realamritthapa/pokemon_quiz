@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ChatBox from "./chat_box/ChatBox";
 import { socket } from "../../services/socket";
 import LobbyStatus from "./lobby_status/LobbyStatus";
@@ -7,13 +7,25 @@ import Countdown from "../quiz_page/timer_page/Countdown";
 import "./lobbypage.css";
 export default function LobbyPage({ data }) {
   const [readyForQuiz, setReadyForQuiz] = useState(false);
-  socket.on("roomReady", (arg) => {
-    console.log("this is from lobby", arg);
-    setTimeout(() => {
-      console.log("in time out");
-      setReadyForQuiz(arg);
-    }, 3000);
-  });
+  const [fetchQuestion, setFetchQuestion] = useState(false);
+  useEffect(() => {
+    socket.on("roomReady", (arg) => {
+      console.log("this is from lobby", arg);
+      setTimeout(() => {
+        console.log("in time out");
+        setReadyForQuiz(arg);
+      }, 3000);
+    });
+  }, []);
+  useEffect(() => {
+    if (!fetchQuestion && readyForQuiz) {
+      socket.emit("quizTime");
+      setFetchQuestion(true);
+
+      console.log("why is this doing");
+    }
+  }, [fetchQuestion, readyForQuiz]);
+
   return (
     <div>
       <h1 className='lobby-title'>Lobby</h1>

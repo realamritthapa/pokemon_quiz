@@ -4,7 +4,7 @@ export class Room {
     this.players = [];
     this.currentQuestion = 0;
     this.gameState = "waiting";
-    this.questions = [];
+    this.questionSet = null;
   }
 
   addPlayer(player) {
@@ -58,7 +58,8 @@ export class Room {
   }
 
   addQuestion(question) {
-    this.questions.push(question);
+    this.questionSet = question;
+    return this.questionSet;
   }
 
   setPlayerReady(playerId) {
