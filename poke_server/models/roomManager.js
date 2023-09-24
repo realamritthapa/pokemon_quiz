@@ -41,15 +41,29 @@ export class RoomsManager {
 
   async makeQuestionLibrary() {
     let questions = this.generateOptionCorrectAnswer();
-
     let questionLibrary = [];
     let question = { img: null, options: null, correctAnswer: null };
+    let optionsName = [];
     for (let data of questions) {
+      for (let names of data.options) {
+        let pokeName = this.pokeLibrary[names].name;
+        optionsName.push(pokeName);
+      }
+      question.options = optionsName;
+      question.correctAnswer = this.pokeLibrary[data.correct].name;
       let url = this.pokeLibrary[data.correct].url;
       let response = await fetch(url);
       let info = await response.json();
-      console.log(info.name);
+      let artwork = info.sprites.other["official-artwork"].front_default;
+      if (!artwork) {
+        artwork = info.sprites.front_default;
+      }
+      question.img = artwork;
+      questionLibrary.push(question);
+      question = { img: null, options: null, correctAnswer: null };
+      optionsName = [];
     }
+    console.log(questionLibrary);
   }
 
   async populatePokeLibrary() {
