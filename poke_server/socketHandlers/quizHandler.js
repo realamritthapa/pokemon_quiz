@@ -4,5 +4,8 @@ export const quizHandler = async (io, playerId) => {
   //await roomManager.populatePokeLibrary();
   console.log("hellob ");
   let question = await roomManager.makeQuestionLibrary();
-  console.log(question);
+  if (question) {
+    console.log(question);
+    io.to(roomId).emit("quizQuestions", question);
+  }
 };

@@ -29,9 +29,13 @@ export default function Countdown({ prop }) {
         colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
         colorsTime={[10, 6, 3, 0]}
         onComplete={() => {
+          if (prop.onComplete) {
+            prop.onComplete();
+          }
+
           prop.goTo === "/quiz" ? setMoveToQuiz(true) : setMoveToQuiz(false);
 
-          return { shouldRepeat: true, delay: 2 };
+          return { shouldRepeat: true, delay: 3 };
         }}
       >
         {renderTime}
