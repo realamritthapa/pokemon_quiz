@@ -55,9 +55,12 @@ async function makeQuestionLibrary() {
 }
 let roomManager = new RoomsManager();
 
-setTimeout(() => {
-  roomManager.makeQuestionLibrary();
-}, 5000);
+let question = await roomManager.makeQuestionLibrary();
+console.log(question);
+console.log("heyyyyy");
+// setTimeout(() => {
+//   roomManager.makeQuestionLibrary();
+// }, 5000);
 app.use("/", pokemondata);
 const httpServer = createServer(app);
 makeServer(httpServer);

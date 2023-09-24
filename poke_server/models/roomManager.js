@@ -4,7 +4,7 @@ export class RoomsManager {
   constructor() {
     this.rooms = {}; //dictionary
     this.pokeLibrary = null;
-    this.populatePokeLibrary();
+    this.libraryPopulated = this.populatePokeLibrary();
   }
 
   generateRandomNumberGroups() {
@@ -40,6 +40,7 @@ export class RoomsManager {
   }
 
   async makeQuestionLibrary() {
+    await this.libraryPopulated;
     let questions = this.generateOptionCorrectAnswer();
     let questionLibrary = [];
     let question = { img: null, options: null, correctAnswer: null };
@@ -64,6 +65,7 @@ export class RoomsManager {
       optionsName = [];
     }
     console.log(questionLibrary);
+    return questionLibrary;
   }
 
   async populatePokeLibrary() {
