@@ -7,6 +7,7 @@ export default function QuizPage() {
   const [questionSet, SetQuestionSet] = useState(null);
   const [questionRecieved, SetQuestionRecieved] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [reveal, SetReveal] = useState(false);
   useEffect(() => {
     socket.on("quizQuestions", (arg) => {
       if (!questionRecieved) {
@@ -16,12 +17,14 @@ export default function QuizPage() {
     });
   }, [questionRecieved]);
   const nextQuestion = () => {
+    SetReveal(true);
     setTimeout(() => {
       if (currentIndex < questionSet.length - 1) {
         setCurrentIndex(currentIndex + 1);
       } else {
         console.log("All questions done!");
       }
+      SetReveal(false);
     }, 3000);
   };
   if (questionRecieved) {
@@ -34,7 +37,9 @@ export default function QuizPage() {
       {questionRecieved ? (
         <div>
           {" "}
-          <PicturePage prop={{ img: questionSet[currentIndex].img }} />
+          <PicturePage
+            prop={{ img: questionSet[currentIndex].img, toReveal: reveal }}
+          />
           <Countdown
             prop={{ time: 10, goTo: "nowhere", onComplete: nextQuestion }}
           />

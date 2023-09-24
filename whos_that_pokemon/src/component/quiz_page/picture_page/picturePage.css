@@ -1,0 +1,9 @@
+.question-image {
+  width: 30%;
+}
+.question-image.reveal {
+}
+
+.question-image.notreveal {
+  filter: brightness(0);
+}
