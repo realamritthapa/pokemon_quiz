@@ -8,12 +8,17 @@ export default function OptionPage({ prop }) {
 
   useEffect(() => {
     if (prop.options) {
-      setSelectedOption(null);
       setAnswered(false);
       SetOptions(prop.options);
       SetCorrectAnswer(prop.correctAnswer);
     }
-  }, [prop]);
+  }, [prop.options]);
+
+  useEffect(() => {
+    if (answered) {
+      prop.SetRevealState(true);
+    }
+  }, [answered]);
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -21,7 +26,6 @@ export default function OptionPage({ prop }) {
     setSelectedOption(chosenAnswer);
     setAnswered(true);
     if (chosenAnswer === correctAnswer) {
-      prop.SetRevealState(true);
       console.log("Correct Answer!");
       // Handle correct answer (e.g. show feedback, load next question, etc.)
     } else {
@@ -29,6 +33,7 @@ export default function OptionPage({ prop }) {
       // Handle incorrect answer (e.g. show feedback, subtract points, etc.)
     }
   };
+  console.log("this is answered", answered);
   const getButtonClassName = (choice) => {
     if (answered) {
       if (choice === selectedOption && choice === correctAnswer) {
@@ -43,7 +48,6 @@ export default function OptionPage({ prop }) {
     }
     return "option-btn";
   };
-  console.log(options);
 
   return (
     <div className='option-container'>
