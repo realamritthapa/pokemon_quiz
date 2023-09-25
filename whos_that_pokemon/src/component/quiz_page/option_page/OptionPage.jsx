@@ -8,6 +8,8 @@ export default function OptionPage({ prop }) {
 
   useEffect(() => {
     if (prop.options) {
+      setSelectedOption(null);
+      setAnswered(false);
       SetOptions(prop.options);
       SetCorrectAnswer(prop.correctAnswer);
     }

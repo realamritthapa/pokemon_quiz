@@ -7,6 +7,8 @@ export const quizHandler = async (io, playerId) => {
   if (question) {
     console.log("quiz question has been sent");
     console.log(question);
-    io.to(roomId).emit("quizQuestions", question);
+    setTimeout(() => {
+      io.to(roomId).emit("quizQuestions", question);
+    }, 2000);
   }
 };

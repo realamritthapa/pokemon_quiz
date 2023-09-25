@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./picturePage.css";
 export default function PicturePage({ prop }) {
+  const [image, SetImage] = useState(null);
+  useEffect(() => {
+    SetImage(prop.img);
+  }, [prop.img]);
   console.log(prop);
   return (
     <div className='image-container'>
@@ -8,7 +12,7 @@ export default function PicturePage({ prop }) {
         className={`question-image ${
           prop.toReveal === true ? "reveal" : "notreveal"
         }`}
-        src={prop.img}
+        src={image}
       />
     </div>
   );

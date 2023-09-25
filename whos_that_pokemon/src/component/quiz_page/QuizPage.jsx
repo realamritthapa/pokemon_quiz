@@ -28,7 +28,7 @@ export default function QuizPage() {
     };
   }, []);
   const nextQuestion = () => {
-    SetReveal(true);
+    // SetReveal(true);
     setTimeout(() => {
       if (currentIndex < questionSet.length - 1) {
         setCurrentIndex(currentIndex + 1);
