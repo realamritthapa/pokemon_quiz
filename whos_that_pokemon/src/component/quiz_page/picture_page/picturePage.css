@@ -1,9 +1,19 @@
 .question-image {
-  width: 30%;
-}
-.question-image.reveal {
+  width: 100%;
 }
 
 .question-image.notreveal {
   filter: brightness(0);
+}
+
+.image-container {
+  display: flex;
+  align-items: center; /* Vertically centers the image */
+  justify-content: center; /* Horizontally centers the image */
+  width: 90%; /* Or set to the specific width you want */
+  height: auto;
+  background-color: white;
+  background: -webkit-radial-gradient(#add8e6 30%, #08c2ff 80%, red 100%);
+  margin-bottom: 20px;
+  border-radius: 10px;
 }

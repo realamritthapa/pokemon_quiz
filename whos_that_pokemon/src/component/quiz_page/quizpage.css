@@ -5,4 +5,25 @@
   color: #ffcb04;
   text-shadow: 3px 3px 0 #39569e, -1px -1px 0 #39569e, 1px -1px 0 #39569e,
     -1px 4px 0 #39569e, 1px 1px 0 #39569e;
+  margin-bottom: 20px;
+}
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  justify-content: start;
+}
+.quiz-page {
+  display: flex;
+  justify-content: center; /* Horizontally center its children */
+  align-items: center; /* Vertically center its children */
+  height: 85%; /* Take up the full height of its parent */
+  width: 100%; /* Take up the full width */
+  gap: 20px;
+  margin-left: 5%;
+}
+.timer {
+  flex: 0.2;
+  align-self: center;
 }
