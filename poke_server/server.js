@@ -6,9 +6,16 @@ import { createServer } from "http";
 import { makeServer } from "./utils/socket.js";
 import pokemondata from "./routes/pokemonData.js";
 import { RoomsManager } from "./models/roomManager.js";
+const corsOptions = {
+  origin: "https://onlinepokequiz.web.app",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+
 const app = express();
 const Port = process.env.PORT || 3000;
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
   res.send("hello world");
