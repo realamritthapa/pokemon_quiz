@@ -27,3 +27,16 @@
   flex: 0.2;
   align-self: center;
 }
+
+.poke-gif {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* This will make the container take the full viewport height */
+  width: 100vw; /* This will make the container take the full viewport width */
+}
+
+.poke-gif img {
+  max-width: 100%; /* Optional: To ensure the image doesn't exceed the screen width */
+  max-height: 100%; /* Optional: To ensure the image doesn't exceed the screen height */
+}

@@ -16,7 +16,9 @@ export default function QuizPage() {
       console.log("i am have recieved", arg);
       if (!questionRecieved) {
         SetQuestionSet(arg);
-        SetQuestionRecieved(true);
+        setTimeout(() => {
+          SetQuestionRecieved(true);
+        }, 1000);
       }
     };
     console.log(questionSet, questionRecieved, currentIndex, reveal);
@@ -70,7 +72,9 @@ export default function QuizPage() {
           </div>
         </div>
       ) : (
-        <div>Loading</div>
+        <div className='poke-gif'>
+          <img src='/assets/poke.gif' />
+        </div>
       )}
     </>
   );

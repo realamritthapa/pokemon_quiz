@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ChatBox from "./chat_box/ChatBox";
+import { useNavigate } from "react-router-dom";
 import { socket } from "../../services/socket";
 import LobbyStatus from "./lobby_status/LobbyStatus";
 import StartQuiz from "./start_quiz/StartQuiz";
@@ -8,6 +9,7 @@ import "./lobbypage.css";
 export default function LobbyPage({ data }) {
   const [readyForQuiz, setReadyForQuiz] = useState(false);
   const [fetchQuestion, setFetchQuestion] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     socket.on("roomReady", (arg) => {
       console.log("this is from lobby", arg);
@@ -21,7 +23,7 @@ export default function LobbyPage({ data }) {
     if (!fetchQuestion && readyForQuiz) {
       socket.emit("quizTime");
       setFetchQuestion(true);
-
+      navigate("/quiz");
       console.log("why is this doing");
     }
   }, [fetchQuestion, readyForQuiz]);
@@ -35,7 +37,7 @@ export default function LobbyPage({ data }) {
           {readyForQuiz ? (
             <>
               <h2>Ready??? Game will begin in...</h2>
-              <Countdown prop={{ time: 1, goTo: "/quiz" }} />
+              {/* <Countdown prop={{ time: 1, goTo: "/quiz" }} /> */}
             </>
           ) : (
             <>

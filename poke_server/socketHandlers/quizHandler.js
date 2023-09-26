@@ -9,6 +9,6 @@ export const quizHandler = async (io, playerId) => {
     console.log(question);
     setTimeout(() => {
       io.to(roomId).emit("quizQuestions", question);
-    }, 2000);
+    }, 5000);
   }
 };
