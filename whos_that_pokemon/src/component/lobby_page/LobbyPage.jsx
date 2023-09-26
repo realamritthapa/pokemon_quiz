@@ -14,7 +14,7 @@ export default function LobbyPage({ data }) {
       setTimeout(() => {
         console.log("in time out");
         setReadyForQuiz(arg);
-      }, 3000);
+      }, 1000);
     });
   }, []);
   useEffect(() => {

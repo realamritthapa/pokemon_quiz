@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import LobbyPage from "./component/lobby_page/LobbyPage";
 import QuizPage from "./component/quiz_page/QuizPage";
+import ResultPage from "./component/result_page/ResultPage";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -36,6 +37,7 @@ function App() {
           element={<LobbyPage data={{ roomId: roomId, name: userName }} />}
         ></Route>
         <Route path='/quiz' element={<QuizPage />}></Route>
+        <Route path='/results' element={<ResultPage />}></Route>
       </Routes>
     </Router>
   );

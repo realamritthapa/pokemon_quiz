@@ -4,6 +4,7 @@ import { socket } from "../../services/socket";
 import Countdown from "./timer_page/Countdown";
 import PicturePage from "./picture_page/picturePage";
 import OptionPage from "./option_page/OptionPage";
+import { useNavigate } from "react-router-dom";
 export default function QuizPage() {
   const [questionSet, SetQuestionSet] = useState(null);
   const [questionRecieved, SetQuestionRecieved] = useState(false);
@@ -27,16 +28,18 @@ export default function QuizPage() {
       socket.off("quizQuestions", handleQuizQuestions);
     };
   }, []);
+  const navigate = useNavigate();
   const nextQuestion = () => {
     // SetReveal(true);
     setTimeout(() => {
       if (currentIndex < questionSet.length - 1) {
         setCurrentIndex(currentIndex + 1);
       } else {
+        navigate("/results");
         console.log("All questions done!");
       }
       SetReveal(false);
-    }, 3000);
+    }, 1000);
   };
   if (questionRecieved) {
     console.log(questionSet);

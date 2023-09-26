@@ -35,7 +35,7 @@ export default function Countdown({ prop }) {
 
           prop.goTo === "/quiz" ? setMoveToQuiz(true) : setMoveToQuiz(false);
 
-          return { shouldRepeat: true, delay: 3 };
+          return { shouldRepeat: true, delay: 1 };
         }}
       >
         {renderTime}
