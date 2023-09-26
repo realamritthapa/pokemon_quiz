@@ -24,7 +24,7 @@ export default function LobbyStatus() {
             <div
               className={`avatar ${obj.ready === true ? "ready" : "nready"}`}
             >
-              <img src={obj.avatar} />
+              <img className='avatar-img' src={obj.avatar} />
             </div>
 
             <div className={`name ${obj.id === myId ? "me" : "them"}`}>
