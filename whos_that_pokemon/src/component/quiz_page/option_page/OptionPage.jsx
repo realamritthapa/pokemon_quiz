@@ -26,6 +26,8 @@ export default function OptionPage({ prop }) {
     setSelectedOption(chosenAnswer);
     setAnswered(true);
     if (chosenAnswer === correctAnswer) {
+      let score = prop.quizScore;
+      prop.SetScoreState(++score);
       console.log("Correct Answer!");
       // Handle correct answer (e.g. show feedback, load next question, etc.)
     } else {

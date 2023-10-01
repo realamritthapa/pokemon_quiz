@@ -10,6 +10,7 @@ export default function QuizPage() {
   const [questionRecieved, SetQuestionRecieved] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [reveal, SetReveal] = useState(false);
+  const [score, SetScore] = useState(0);
 
   useEffect(() => {
     const handleQuizQuestions = (arg) => {
@@ -36,6 +37,7 @@ export default function QuizPage() {
     setTimeout(() => {
       if (currentIndex < questionSet.length - 1) {
         setCurrentIndex(currentIndex + 1);
+        console.log("This is the score: ", score);
       } else {
         navigate("/results");
         console.log("All questions done!");
@@ -62,6 +64,8 @@ export default function QuizPage() {
                 options: questionSet[currentIndex].options,
                 correctAnswer: questionSet[currentIndex].correctAnswer,
                 SetRevealState: SetReveal,
+                SetScoreState: SetScore,
+                quizScore: score,
               }}
             />
           </div>

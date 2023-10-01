@@ -7,7 +7,7 @@ import { makeServer } from "./utils/socket.js";
 import pokemondata from "./routes/pokemonData.js";
 import { RoomsManager } from "./models/roomManager.js";
 const corsOptions = {
-  origin: "https://onlinepokequiz.web.app",
+  origin: ["https://onlinepokequiz.web.app", "http://localhost:5173"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
