@@ -38,6 +38,7 @@ export default function QuizPage() {
       if (currentIndex < questionSet.length - 1) {
         setCurrentIndex(currentIndex + 1);
       } else {
+        socket.emit("result");
         navigate("/results");
         console.log("All questions done!");
       }
