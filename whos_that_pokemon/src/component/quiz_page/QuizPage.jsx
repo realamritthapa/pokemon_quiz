@@ -37,7 +37,6 @@ export default function QuizPage() {
     setTimeout(() => {
       if (currentIndex < questionSet.length - 1) {
         setCurrentIndex(currentIndex + 1);
-        console.log("This is the score: ", score);
       } else {
         navigate("/results");
         console.log("All questions done!");

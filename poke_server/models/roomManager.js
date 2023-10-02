@@ -164,6 +164,10 @@ export class RoomsManager {
     return null;
   }
 
+  score(roomId, playerId) {
+    this.rooms[roomId].addScore(playerId);
+  }
+
   readyRoom(roomId) {
     return this.rooms[roomId].gameState;
   }

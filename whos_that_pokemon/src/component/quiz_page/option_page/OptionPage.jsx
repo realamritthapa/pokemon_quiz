@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./optionpage.css";
+import { socket } from "../../../services/socket";
 export default function OptionPage({ prop }) {
   const [options, SetOptions] = useState(null);
   const [correctAnswer, SetCorrectAnswer] = useState(null);
@@ -26,6 +27,7 @@ export default function OptionPage({ prop }) {
     setSelectedOption(chosenAnswer);
     setAnswered(true);
     if (chosenAnswer === correctAnswer) {
+      socket.emit("score");
       let score = prop.quizScore;
       prop.SetScoreState(++score);
       console.log("Correct Answer!");

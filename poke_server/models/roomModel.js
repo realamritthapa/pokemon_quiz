@@ -11,6 +11,14 @@ export class Room {
     this.players.push(player);
   }
 
+  addScore(playerId) {
+    for (let player of this.players) {
+      if (playerId === player.id) {
+        player.increaseScore();
+      }
+    }
+  }
+
   isFull() {
     return this.players.length > 1;
   }

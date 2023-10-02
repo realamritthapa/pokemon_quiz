@@ -7,8 +7,9 @@ export class Player {
     this.ready = false;
   }
 
-  increaseScore(points) {
-    this.score += points;
+  increaseScore() {
+    this.score += 1;
+    console.log("This players score is: ", this.score);
   }
 
   getBasicInfo() {
