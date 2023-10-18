@@ -37,7 +37,7 @@ export default function ResultPage() {
           <div>Score</div>
         </div>
         {players.map((data) => (
-          <div className='user'>
+          <div className='user-result'>
             <img src={data.avatar} width='150px' />
             <div className='user-name'>{data.name.toUpperCase()}</div>
             <div className='user-score'>{data.score} </div>

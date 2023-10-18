@@ -17,7 +17,6 @@
   background-color: #fdf7c3;
 }
 .avatar-img {
-  
   height: 100%; /* Or any other height */
   object-fit: cover; /* Ensures the image covers the area without distortion */
 }

@@ -12,6 +12,11 @@
 </ul>
 <h2>Overview</h2>
 <p>Welcome to the Online Multiplayer Pokémon Quiz game inspired by the "Who's That Pokémon?" segment from the Pokémon TV series. Players can test their Pokémon knowledge, engage in synchronous gameplay with friends, and chat in-game.</p>
+<h2>Demo Pictures</h2>
+<img src="./assets/lobby_pic.png"  width="35%"/>
+<img src="./assets/before.png" width="35%"/>
+<img src="./assets/after.png" width="35%"/>
+<img src="./assets/result.png" width="35%"/>
 
 <h2>Features</h2>
     <ul>
