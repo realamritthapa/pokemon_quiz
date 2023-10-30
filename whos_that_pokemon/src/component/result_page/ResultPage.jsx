@@ -22,7 +22,6 @@ export default function ResultPage() {
   ]);
   useEffect(() => {
     socket.on("allScores", (data) => {
-      console.log(data);
       SetPlayers(data);
     });
   }, [players]);

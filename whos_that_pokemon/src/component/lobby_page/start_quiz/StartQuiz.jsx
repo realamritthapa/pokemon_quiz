@@ -6,7 +6,6 @@ export default function StartQuiz() {
   function handleClick() {
     socket.emit("ready");
     SetClicked(true);
-    console.log("hello");
   }
   return (
     <>

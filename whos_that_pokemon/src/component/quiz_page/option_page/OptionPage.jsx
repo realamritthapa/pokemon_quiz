@@ -30,14 +30,11 @@ export default function OptionPage({ prop }) {
       socket.emit("score");
       let score = prop.quizScore;
       prop.SetScoreState(++score);
-      console.log("Correct Answer!");
       // Handle correct answer (e.g. show feedback, load next question, etc.)
     } else {
-      console.log("Wrong Answer!");
       // Handle incorrect answer (e.g. show feedback, subtract points, etc.)
     }
   };
-  console.log("this is answered", answered);
   const getButtonClassName = (choice) => {
     if (answered) {
       if (choice === selectedOption && choice === correctAnswer) {

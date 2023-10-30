@@ -7,7 +7,6 @@ export const Results = (playerId, io) => {
   });
   if (players) {
     setTimeout(() => {
-      console.log(players);
       io.to(roomId).emit("allScores", players);
     }, 2000);
   }

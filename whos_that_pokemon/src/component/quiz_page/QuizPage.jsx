@@ -14,7 +14,6 @@ export default function QuizPage() {
 
   useEffect(() => {
     const handleQuizQuestions = (arg) => {
-      console.log("i am have recieved", arg);
       if (!questionRecieved) {
         SetQuestionSet(arg);
         setTimeout(() => {
@@ -22,7 +21,6 @@ export default function QuizPage() {
         }, 1000);
       }
     };
-    console.log(questionSet, questionRecieved, currentIndex, reveal);
 
     socket.on("quizQuestions", handleQuizQuestions);
 
@@ -40,13 +38,11 @@ export default function QuizPage() {
       } else {
         socket.emit("result");
         navigate("/results");
-        console.log("All questions done!");
       }
       SetReveal(false);
     }, 1000);
   };
   if (questionRecieved) {
-    console.log(questionSet);
   }
 
   return (

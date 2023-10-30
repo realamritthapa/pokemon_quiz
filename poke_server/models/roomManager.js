@@ -173,7 +173,6 @@ export class RoomsManager {
   }
 
   resetRoom(roomId) {
-    console.log("resetting room");
     return this.rooms[roomId].setGameState();
   }
 }

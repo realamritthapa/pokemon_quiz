@@ -10,7 +10,6 @@ export default function Messages() {
 
   useEffect(() => {
     const handleIncomingMessage = (arg) => {
-      console.log(arg);
       setMessage((prevMessages) => [...prevMessages, arg]);
     };
     socket.on("socketId", (data) => {
@@ -24,9 +23,7 @@ export default function Messages() {
       socket.off("incommingMessage", handleIncomingMessage);
     };
   }, []);
-  useEffect(() => {
-    console.log(message);
-  }, [message]);
+  useEffect(() => {}, [message]);
   return (
     <div>
       {isSocketIdRetrieved ? (

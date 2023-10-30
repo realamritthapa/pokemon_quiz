@@ -12,9 +12,7 @@ export default function LobbyPage({ data }) {
   const navigate = useNavigate();
   useEffect(() => {
     socket.on("roomReady", (arg) => {
-      console.log("this is from lobby", arg);
       setTimeout(() => {
-        console.log("in time out");
         setReadyForQuiz(arg);
       }, 1000);
     });
@@ -24,7 +22,6 @@ export default function LobbyPage({ data }) {
       socket.emit("quizTime");
       setFetchQuestion(true);
       navigate("/quiz");
-      console.log("why is this doing");
     }
   }, [fetchQuestion, readyForQuiz]);
 

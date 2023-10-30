@@ -8,6 +8,5 @@ export const disconnectHandler = (io, playerId) => {
     let players = roomManager.getPlayerInformation(roomId);
     io.to(roomId).emit("lobbyStatus", players);
   } else {
-    console.log("no room id");
   }
 };

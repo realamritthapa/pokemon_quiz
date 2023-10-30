@@ -92,16 +92,8 @@ export class Room {
   }
 
   setGameState() {
-    console.log(
-      "this is in the room",
-      this.gameState,
-      this.players.length,
-      !this.isFull
-    );
-
     if (this.players.length < 1 && this.gameState == "ready") {
       this.gameState = "waiting";
-      console.log("This is a room", this.gameState);
     }
     return true;
   }
@@ -114,6 +106,5 @@ export class Room {
       let num = Math.floor((Math.random() + 1) * 1250); // 1250 because thats max # of pokemon in api
       arr.push(num);
     }
-    console.log(arr);
   }
 }

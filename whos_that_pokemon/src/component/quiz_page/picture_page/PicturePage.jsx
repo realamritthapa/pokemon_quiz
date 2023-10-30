@@ -5,7 +5,6 @@ export default function PicturePage({ prop }) {
   useEffect(() => {
     SetImage(prop.img);
   }, [prop.img]);
-  console.log(prop);
   return (
     <div className='image-container'>
       <img

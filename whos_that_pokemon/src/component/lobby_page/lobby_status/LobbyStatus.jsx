@@ -4,17 +4,12 @@ import "./lobbystatus.css";
 export default function LobbyStatus() {
   const [lobbyStatus, setLobbyStatus] = useState([]);
   const myId = socket.id;
-  console.log(socket.id);
   useEffect(() => {
     socket.on("lobbyStatus", (arr) => {
-      console.log(arr);
       setLobbyStatus(arr);
     });
   }, []);
-  useEffect(() => {
-    console.log("under here");
-    console.log(lobbyStatus);
-  }, []);
+  useEffect(() => {}, []);
   return (
     <div className='lobby-container'>
       <h4 className='container-title'>Pokemon Trainers in Chat</h4>
