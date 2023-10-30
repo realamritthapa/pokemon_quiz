@@ -11,6 +11,7 @@ export class Room {
     this.players.push(player);
   }
 
+  // adds score to the player
   addScore(playerId) {
     for (let player of this.players) {
       if (playerId === player.id) {
@@ -27,6 +28,7 @@ export class Room {
     this.players = this.players.filter((player) => player.id !== playerId);
   }
 
+  // checks which room the player is located and returns id
   getRoomId(playerId) {
     for (let player of this.players) {
       if (player.id === playerId) {
@@ -36,6 +38,7 @@ export class Room {
     return null;
   }
 
+  //makes sure all players in room are ready before room being ready
   isRoomReady() {
     let ready = 0;
     if (this.isFull()) {
@@ -51,6 +54,7 @@ export class Room {
     return false;
   }
 
+  //returns eveything about the player
   getPlayerInfo(roomId) {
     if (this.roomId === roomId) {
       return this.players;
@@ -59,17 +63,20 @@ export class Room {
     }
   }
 
+  //returns the current question but not currently being used
   getCurrentQuestion() {
     let question = this.questions[this.currentQuestion];
     this.currentQuestion = this.currentQuestion + 1;
     return question;
   }
 
+  // also currenly not being used
   addQuestion(question) {
     this.questionSet = question;
     return this.questionSet;
   }
 
+  // find the players and sets their state to ready
   setPlayerReady(playerId) {
     for (let player of this.players) {
       if (player.id === playerId) {
@@ -99,10 +106,12 @@ export class Room {
     return true;
   }
 
+  // generates 40 random numbers which will be used to
+  // get the questions from the api
   generateQuestion() {
     let arr = [];
     for (let i = 0; i < 40; ++i) {
-      let num = Math.floor((Math.random() + 1) * 1250);
+      let num = Math.floor((Math.random() + 1) * 1250); // 1250 because thats max # of pokemon in api
       arr.push(num);
     }
     console.log(arr);

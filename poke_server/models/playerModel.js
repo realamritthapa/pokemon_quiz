@@ -29,6 +29,7 @@ export class Player {
     }
   }
 
+  //returns whether player is ready or not
   isReady() {
     return this.ready;
   }
